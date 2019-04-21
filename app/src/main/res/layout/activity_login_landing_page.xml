@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/white"
+        android:id="@+id/loginContentWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+    <ImageView
+            android:id="@+id/canvasLogo"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="-8dp"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/vd_canvas_logo"/>
+
+    <TextView
+            android:id="@+id/canvasName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/loginTitle"
+            android:textColor="@color/grayCanvasLogo"
+            android:textSize="56sp"/>
+
+    <TextView
+            android:id="@+id/appDescriptionType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-8dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/appUserType"
+            android:textAllCaps="true"
+            android:textColor="@color/templateThemeColor"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+    <Button
+            android:id="@+id/findMySchool"
+            style="@style/ButtonStyle"
+            android:layout_width="240dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/findMySchool"/>
+
+</LinearLayout>

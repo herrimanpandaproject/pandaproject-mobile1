@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/exampleFragment">
+
+    <fragment android:id="@+id/exampleFragment"
+              android:name="com.instructure.template.projectCodeHere.ExampleFragment"
+              android:label="ExampleFragment">
+
+        <action android:id="@+id/action_exampleFragment_to_exampleDestinationFragment"
+                app:destination="@id/exampleDestinationFragment"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/exampleDestinationFragment"
+              android:name="com.instructure.template.projectCodeHere.ExampleDestinationFragment"
+              android:label="ExampleDestinationFragment"/>
+
+</navigation>

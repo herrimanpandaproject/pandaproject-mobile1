@@ -1,0 +1,26 @@
+<resources>
+
+
+    <!-- Template Strings -->
+    <string name="appName">Canvas Template</string>
+    <string name="loginTitle">canvas</string>
+    <string name="appUserType">Template</string>
+    <string name="mainActivity">Main Activity</string>
+    <string name="findMySchool">Find my school</string>
+    <string name="manualLogin">Enter Token Manually</string>
+    <string name="loginHint">Find your school or district</string>
+    <string name="whatsYourSchoolName">What\'s your school\'s name?</string>
+    <string name="close">Close</string>
+    <string name="next">Next</string>
+    <string name="mobileVerifyGeneral">This app is not authorized for use</string>
+    <string name="mobileVerifyDomainUnauthorized">The server you entered is not authorized for this app.</string>
+    <string name="mobileVerifyUserAgentUnauthorized">The user agent for this app is unauthorized.</string>
+    <string name="mobileVerifyUnknownError">We were unable to verify the server for use with this app.</string>
+    <string name="unknownDevice">UnknownDevice</string>
+    <string name="errorOccurred">An unexpected error occurred.</string>
+    <string name="invalidEmailPassword">Invalid email or password</string>
+    <string name="exampleDestination">You\'ve reached an example destination!</string>
+    <string name="helloWorld">Hello World, you\'ve logged in.</string>
+    <string name="exampleNavigation">Example Navigation</string>
+    <string name="logoutStringExample">Logout</string>
+</resources>

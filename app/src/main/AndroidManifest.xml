@@ -1,0 +1,57 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools" package="com.instructure.template">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+            android:allowBackup="false"
+            android:label="@string/appName"
+            android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+                android:name=".loginTemplate.login.LoginActivity"
+                android:label="@string/appName"
+                android:windowSoftInputMode="stateHidden|adjustPan"
+                android:clearTaskOnLaunch="true"
+                android:launchMode="singleTop"
+                android:configChanges="keyboardHidden|orientation|screenSize"
+                android:theme="@style/LoginFlowTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".loginTemplate.login.LoginLandingPageActivity"
+                  android:theme="@style/LoginFlowTheme.NoActionBar"
+                  android:launchMode="singleTop"/>
+
+        <activity android:name=".loginTemplate.login.FindSchoolActivity"
+                  android:theme="@style/LoginFlowTheme.NoActionBar"
+                  android:launchMode="singleTop"/>
+
+        <activity android:name=".loginTemplate.login.SignInActivity"
+                  android:theme="@style/LoginFlowTheme.NoActionBar"
+                  android:launchMode="singleTop"/>
+
+        <activity android:name=".projectCodeHere.ExampleActivity"
+                  android:launchMode="singleTask"
+                  android:configChanges="orientation|screenSize"
+                  android:label="@string/mainActivity"
+                  android:theme="@style/CanvasTemplateTheme_Default">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+                android:name=".loginTemplate.utils.ContextKeeper"
+                android:authorities="${applicationId}.canvasApiContextKeeper"
+                android:exported="false" />
+    </application>
+</manifest>

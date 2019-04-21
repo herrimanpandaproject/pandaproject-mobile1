@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Template Colors -->
+    <color name="grayCanvasLogo">#c7cdd1</color>
+    <color name="templateThemeColor">#4CAF50</color>
+    <color name="canvasDefaultButtonText">#FFFFFF</color>
+    <color name="loginFlowBlue">#008ee2</color>
+    <color name="login_dividerColor">#E0E0E0</color>
+</resources>
