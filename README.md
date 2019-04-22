@@ -1,3 +1,5 @@
+This template project is licensed under the ApacheV2 license for and is available for learning purposes.
+
 ```
 Copyright (C) 2016 - present Instructure, Inc.
 
