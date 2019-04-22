@@ -42,7 +42,7 @@ object ApiPrefs : PrefManager(PREFERENCE_FILE_NAME) {
     var protocol by StringPref("https", "api_protocol")
 
     @JvmStatic
-    var userAgent by StringPref("pandaprojet")
+    var userAgent by StringPref("pandaprojectm1")
 
     @JvmStatic
     var perPageCount = 100
