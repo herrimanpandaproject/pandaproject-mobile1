@@ -52,7 +52,7 @@ class RequestInterceptor : Interceptor {
 
         // Authenticate if possible
         if (!params.shouldIgnoreToken && token != "") {
-            builder.addHeader("Authorization", "Bearer $token")
+            builder.addHeader("Authorization", "Bearer ${token.trim()}")
         }
 
         // Add Accept-Language header for a11y
