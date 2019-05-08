@@ -2,19 +2,19 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/nav_graph"
-            app:startDestination="@id/exampleFragment">
+            app:startDestination="@id/exampleFragmentJavified">
 
-    <fragment android:id="@+id/exampleFragment"
-              android:name="com.instructure.template.projectCodeHere.ExampleFragment"
-              android:label="ExampleFragment">
+    <fragment android:id="@+id/exampleFragmentJavified"
+              android:name="com.instructure.template.projectCodeHere.javafiedExamples.ExampleFragmentJavified"
+              android:label="ExampleFragmentJavified">
 
         <action android:id="@+id/action_exampleFragment_to_exampleDestinationFragment"
-                app:destination="@id/exampleDestinationFragment"/>
+                app:destination="@id/ExampleDestinationFragmentJavified"/>
 
     </fragment>
 
-    <fragment android:id="@+id/exampleDestinationFragment"
-              android:name="com.instructure.template.projectCodeHere.ExampleDestinationFragment"
-              android:label="ExampleDestinationFragment"/>
+    <fragment android:id="@+id/ExampleDestinationFragmentJavified"
+              android:name="com.instructure.template.projectCodeHere.javafiedExamples.ExampleDestinationFragmentJavified"
+              android:label="ExampleDestinationFragmentJavified"/>
 
 </navigation>

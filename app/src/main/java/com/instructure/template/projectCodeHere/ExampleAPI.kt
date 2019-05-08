@@ -62,7 +62,7 @@ object ExampleAPI {
         // when its good and ready.
         call.enqueue(object : Callback<ExampleResponse> {
             override fun onFailure(call: Call<ExampleResponse>, t: Throwable) {
-                // This is where you would put code for the error/failure case
+                // This  is where you would put code for the error/failure case
             }
             override fun onResponse(call: Call<ExampleResponse>, response: Response<ExampleResponse>) {
                 // This is where you would put code for the success case!

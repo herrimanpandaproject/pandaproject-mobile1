@@ -34,6 +34,7 @@ import com.instructure.template.loginTemplate.api.models.SignedInUser
 import com.instructure.template.loginTemplate.api.models.User
 import com.instructure.template.loginTemplate.utils.Const
 import com.instructure.template.projectCodeHere.ExampleActivity
+import com.instructure.template.projectCodeHere.javafiedExamples.ExampleActivityJavified
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import retrofit2.Call
 import retrofit2.Response
@@ -60,7 +61,7 @@ class SignInActivity : AppCompatActivity() {
             CookieManager.getInstance().flush()
         }
 
-        val intent = Intent(this, ExampleActivity::class.java)
+        val intent = Intent(this, ExampleActivityJavified::class.java)
         if (getIntent() != null && getIntent().extras != null) {
             intent.putExtras(getIntent().extras)
         }
