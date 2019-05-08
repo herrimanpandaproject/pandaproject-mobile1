@@ -11,6 +11,6 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:text="@string/exampleDestination"/>
+            android:text="Java example destination"/>
 
 </LinearLayout>

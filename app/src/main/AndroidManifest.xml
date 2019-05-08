@@ -39,7 +39,7 @@
                   android:theme="@style/LoginFlowTheme.NoActionBar"
                   android:launchMode="singleTop"/>
 
-        <activity android:name=".projectCodeHere.ExampleActivity"
+        <activity android:name=".projectCodeHere.javafiedExamples.ExampleActivityJavified"
                   android:launchMode="singleTask"
                   android:configChanges="orientation|screenSize"
                   android:label="@string/mainActivity"
