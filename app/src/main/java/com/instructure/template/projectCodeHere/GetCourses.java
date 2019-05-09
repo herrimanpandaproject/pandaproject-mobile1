@@ -1,10 +1,6 @@
 package com.instructure.template.projectCodeHere;
 
-import com.instructure.template.loginTemplate.api.apiHelpers.RestBuilder;
-import com.instructure.template.loginTemplate.api.apiHelpers.RestParams;
-import com.instructure.template.loginTemplate.api.apiHelpers.StatusCallback;
 import com.instructure.template.loginTemplate.api.models.Course;
-import com.instructure.template.loginTemplate.api.models.User;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -23,7 +19,7 @@ public interface GetCourses {
     );
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl("https://pandaproject.instructure.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }
