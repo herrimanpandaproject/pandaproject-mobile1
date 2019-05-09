@@ -1,5 +1,6 @@
 package com.instructure.template.projectCodeHere;
 
+import com.instructure.template.loginTemplate.api.ApiPrefs;
 import com.instructure.template.loginTemplate.api.models.Course;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -19,7 +20,7 @@ public interface GetCourses {
     );
 
     public static final Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://pandaproject.instructure.com/")
+            .baseUrl(ApiPrefs.getFullDomain())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 }
