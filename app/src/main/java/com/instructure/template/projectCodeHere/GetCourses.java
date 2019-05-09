@@ -35,6 +35,6 @@ public interface GetCourses {
         public void onResponse(@NotNull Call call, @NotNull Response response) {
             // This is where you would put code for the success case!
             // The data is in the response body - response.body()
-            (new Gson().toJson(response.body()))s
+            (new Gson().toJson(response.body()))
         }
     }));*/
