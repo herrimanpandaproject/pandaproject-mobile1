@@ -33,7 +33,6 @@ import com.instructure.template.loginTemplate.api.models.OAuthToken
 import com.instructure.template.loginTemplate.api.models.SignedInUser
 import com.instructure.template.loginTemplate.api.models.User
 import com.instructure.template.loginTemplate.utils.Const
-import com.instructure.template.projectCodeHere.ExampleActivity
 import com.instructure.template.projectCodeHere.javafiedExamples.ExampleActivityJavified
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import retrofit2.Call

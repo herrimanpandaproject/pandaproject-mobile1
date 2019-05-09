@@ -24,7 +24,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.instructure.template.R
 import com.instructure.template.loginTemplate.api.ApiPrefs
-import com.instructure.template.projectCodeHere.ExampleActivity
 import com.instructure.template.projectCodeHere.javafiedExamples.ExampleActivityJavified
 
 class LoginActivity : AppCompatActivity() {
