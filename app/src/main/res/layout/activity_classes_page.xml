@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="46dp" android:background="#D2C7C7C7">
+        <ImageView
+                android:layout_width="55dp"
+                android:layout_height="48dp" app:srcCompat="@drawable/vd_arrow_back" android:id="@+id/imageView2"/>
+        <TextView
+                android:text="Classes"
+                android:layout_width="match_parent"
+                android:layout_height="46dp" android:id="@+id/textView" android:textSize="26sp"
+                android:textAlignment="textStart" android:textAllCaps="false" android:autoText="false"
+                android:typeface="normal" android:gravity="center|clip_vertical|center_vertical"
+                android:textStyle="bold"/>
+    </LinearLayout>
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:paddingLeft="30sp" android:paddingTop="15sp"/>
+</LinearLayout>
