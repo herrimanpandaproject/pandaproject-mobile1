@@ -2,9 +2,9 @@
 
 
     <!-- Template Strings -->
-    <string name="appName">Canvas Template</string>
+    <string name="appName">Canvas Application</string>
     <string name="loginTitle">canvas</string>
-    <string name="appUserType">Template</string>
+    <string name="appUserType">application</string>
     <string name="mainActivity">Main Activity</string>
     <string name="findMySchool">Find my school</string>
     <string name="manualLogin">Enter Token Manually</string>
