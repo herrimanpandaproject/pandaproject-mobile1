@@ -12,9 +12,9 @@ import retrofit2.http.Path;
 import java.util.List;
 
 public interface GetEnrollments {
-    @GET("/api/v1/users/{course_id}/enrollments")
+    @GET("/api/v1/users/{user_id}/enrollments")
     Call<List<Enrollment>> callEnrollment(
-            @Path("course_id") Long course_id,
+            @Path("user_id") Long user_id,
             @Header("Authorization") String authorization,
             @Header("User-Agent") String userAgent
     );
