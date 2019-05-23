@@ -48,7 +48,7 @@ public class ExampleDestinationFragmentJavified extends Fragment {
                 // The data is in the response body - response.body()
                 GetCourses.CoursesResponse g = (GetCourses.CoursesResponse)response.body();
                 Log.d("Id", g.getId() + "");
-                Log.d("Name", g.getName() + "");
+                Log.d("Name", g.getEnrollments().toString());
             }
         }));
         return inflater.inflate(R.layout.fragment_example_destination, container, false);

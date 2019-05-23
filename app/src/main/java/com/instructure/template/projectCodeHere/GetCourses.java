@@ -12,6 +12,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Path;
 
+import java.util.List;
+
 public interface GetCourses {
     @GET("/api/v1/users/{user_id}/courses")
     Call<CoursesResponse> coursesCall(
@@ -28,8 +30,8 @@ public interface GetCourses {
     class CoursesResponse implements Parcelable {
         @SerializedName("id")
         private long id;
-        @SerializedName("name")
-        private String name;
+        @SerializedName("enrollments")
+        private List<Enrollment> enrollments;
 
         public long getId() {
             return id;
@@ -39,23 +41,23 @@ public interface GetCourses {
             this.id = id;
         }
 
-        public String getName() {
-            return name;
+        public List<Enrollment> getEnrollments() {
+            return enrollments;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public void setName(List<Enrollment> enrollments) {
+            this.enrollments = enrollments;
         }
 
         protected CoursesResponse(Parcel in) {
             id = in.readLong();
-            name = in.readString();
+            in.readList(enrollments, Enrollment.class.getClassLoader());
         }
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
-            dest.writeString(name);
+            dest.writeList(enrollments);
         }
 
         @Override
