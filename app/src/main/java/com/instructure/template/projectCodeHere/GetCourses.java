@@ -16,7 +16,7 @@ import java.util.List;
 
 public interface GetCourses {
     @GET("/api/v1/users/{user_id}/courses")
-    Call<CoursesResponse> coursesCall(
+    Call<List<CoursesResponse>> coursesCall(
             @Path("user_id") Long user_id,
             @Header("Authorization") String authorization,
             @Header("User-Agent") String userAgent

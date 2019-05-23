@@ -21,6 +21,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExampleDestinationFragmentJavified extends Fragment {
@@ -34,11 +35,11 @@ public class ExampleDestinationFragmentJavified extends Fragment {
                 .build();
 
         GetCourses getCourses = client.create(GetCourses.class);
-        Call<GetCourses.CoursesResponse> call = getCourses.coursesCall(ApiPrefs.getUser().getId(), "Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
-        call.enqueue((new Callback<GetCourses.CoursesResponse>() {
+        Call<List<GetCourses.CoursesResponse>> call = getCourses.coursesCall(ApiPrefs.getUser().getId(), "Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
+        call.enqueue((new Callback<List<GetCourses.CoursesResponse>>() {
             public void onFailure(@NotNull Call call, @NotNull Throwable t) {
                 // This  is where you would put code for the error/failure case
-                Log.d("ERROR", "Fail");
+                Log.e("Call Fail", "GetCourses call has failed.");
                 Log.d("Throwable", t.toString());
                 Log.d("Call", call.toString());
             }
@@ -46,9 +47,12 @@ public class ExampleDestinationFragmentJavified extends Fragment {
             public void onResponse(@NotNull Call call, @NotNull Response response) {
                 // This is where you would put code for the success case!
                 // The data is in the response body - response.body()
-                GetCourses.CoursesResponse g = (GetCourses.CoursesResponse)response.body();
-                Log.d("Id", g.getId() + "");
-                Log.d("Name", g.getEnrollments().toString());
+                List<GetCourses.CoursesResponse> g;
+                g = (ArrayList<GetCourses.CoursesResponse>)response.body();
+                for (GetCourses.CoursesResponse i : g) {
+                    Log.d("Id", i.getId() + "");
+                    Log.d("enrolments", i.getEnrollments().toString());
+                }
             }
         }));
         return inflater.inflate(R.layout.fragment_example_destination, container, false);
