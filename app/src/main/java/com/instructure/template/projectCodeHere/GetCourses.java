@@ -1,10 +1,7 @@
 package com.instructure.template.projectCodeHere;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-import com.google.gson.annotations.SerializedName;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
-import com.instructure.template.loginTemplate.api.models.Enrollment;
+import com.instructure.template.loginTemplate.api.models.Course;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -16,7 +13,7 @@ import java.util.List;
 
 public interface GetCourses {
     @GET("/api/v1/users/{user_id}/courses")
-    Call<List<CoursesResponse>> coursesCall(
+    Call<List<Course>> coursesCall(
             @Path("user_id") Long user_id,
             @Header("Authorization") String authorization,
             @Header("User-Agent") String userAgent
@@ -26,68 +23,18 @@ public interface GetCourses {
             .baseUrl(ApiPrefs.getFullDomain())
             .addConverterFactory(GsonConverterFactory.create())
             .build();
-
-    class CoursesResponse implements Parcelable {
-        @SerializedName("id")
-        private long id;
-        @SerializedName("enrollments")
-        private List<Enrollment> enrollments;
-        @SerializedName("name")
-        private String name;
-
-        public long getId() {
-            return id;
-        }
-
-        public void setId(long id) {
-            this.id = id;
-        }
-
-        public List<Enrollment> getEnrollments() {
-            return enrollments;
-        }
-
-        public void setEnrollments(List<Enrollment> enrollments) {
-            this.enrollments = enrollments;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        protected CoursesResponse(Parcel in) {
-            id = in.readLong();
-            in.readList(enrollments, Enrollment.class.getClassLoader());
-            name = in.readString();
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            dest.writeLong(id);
-            dest.writeList(enrollments);
-            dest.writeString(name);
-        }
-
-        @Override
-        public int describeContents() {
-            return 0;
-        }
-
-        public final Creator<CoursesResponse> CREATOR = new Creator<CoursesResponse>() {
-            @Override
-            public CoursesResponse createFromParcel(Parcel in) {
-                return new CoursesResponse(in);
-            }
-
-            @Override
-            public CoursesResponse[] newArray(int size) {
-                return new CoursesResponse[size];
-            }
-        };
-
-    }
 }
+    //This is how one would implement this interface (returns json data)
+    /*GetCourses getCourses = GetCourses.retrofit.create(GetCourses.class);
+    Call<List<Course>> call = getCourses.coursesCall(ApiPrefs.getUser().getId(), "Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
+    call.enqueue((new Callback() {
+        public void onFailure(@NotNull Call call, @NotNull Throwable t) {
+            // This  is where you would put code for the error/failure case
+        }
+
+        public void onResponse(@NotNull Call call, @NotNull Response response) {
+            // This is where you would put code for the success case!
+            // The data is in the response body - response.body()
+            (new Gson().toJson(response.body()))s
+        }
+    }));*/
