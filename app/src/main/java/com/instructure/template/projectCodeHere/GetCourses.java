@@ -32,6 +32,8 @@ public interface GetCourses {
         private long id;
         @SerializedName("enrollments")
         private List<Enrollment> enrollments;
+        @SerializedName("name")
+        private String name;
 
         public long getId() {
             return id;
@@ -45,19 +47,29 @@ public interface GetCourses {
             return enrollments;
         }
 
-        public void setName(List<Enrollment> enrollments) {
+        public void setEnrollments(List<Enrollment> enrollments) {
             this.enrollments = enrollments;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
 
         protected CoursesResponse(Parcel in) {
             id = in.readLong();
             in.readList(enrollments, Enrollment.class.getClassLoader());
+            name = in.readString();
         }
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
             dest.writeList(enrollments);
+            dest.writeString(name);
         }
 
         @Override
