@@ -52,6 +52,9 @@ public class ExampleDestinationFragmentJavified extends Fragment {
                 for (GetCourses.CoursesResponse i : g) {
                     Log.d("Id", i.getId() + "");
                     Log.d("enrolments", i.getEnrollments().toString());
+                    Log.d("name", i.getName());
+
+                    
                 }
             }
         }));
