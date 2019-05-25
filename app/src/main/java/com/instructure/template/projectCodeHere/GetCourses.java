@@ -2,19 +2,14 @@ package com.instructure.template.projectCodeHere;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 import com.google.gson.annotations.SerializedName;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
-import com.instructure.template.loginTemplate.api.models.Enrollment;
-import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 //Create a list containing enrollment objects
@@ -29,8 +24,8 @@ import java.util.List;
 //    public void onResponse(@NotNull Call call, @NotNull Response response) {
 //        // This is where you would put code for the success case!
 //        // The data is in the response body - response.body()
-//          List<GetEnrollments.EnrollmentResponse> g;
-//          g = (ArrayList<GetEnrollments.EnrollmentResponse>)response.body();
+//          List<GetCourses.CoursesResponse> g;
+//          g = (ArrayList<GetCourses.CoursesResponse>)response.body();
 //    }
 //}));
 public interface GetCourses {
