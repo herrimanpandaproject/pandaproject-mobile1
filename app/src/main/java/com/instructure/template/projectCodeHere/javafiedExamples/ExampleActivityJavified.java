@@ -183,6 +183,10 @@ public class ExampleActivityJavified extends AppCompatActivity {
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragmentJavified_to_fragmentCourse3);
             drawer.closeDrawer();
         }
+        else if (drawerItem instanceof ProfileDrawerItem) {
+            Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragment_to_ProfilePage);
+            drawer.closeDrawer();
+        }
         return true;
     }
 
