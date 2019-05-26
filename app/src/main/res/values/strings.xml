@@ -24,4 +24,9 @@
     <string name="exampleNavigation">Example Navigation</string>
     <string name="logoutStringExample">Logout</string>
     <string name="logout">logout</string>
+    <string name="username">Username</string>
+    <string name="usernamePrint">(insert Username)</string>
+    <string name="gpaWord">GPA: </string>
+    <string name="gpa">temp</string>
+    <string name="email">tempEmail</string>
 </resources>
