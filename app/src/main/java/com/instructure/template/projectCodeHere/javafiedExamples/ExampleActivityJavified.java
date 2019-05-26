@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,6 +18,8 @@ import com.instructure.template.loginTemplate.api.apiHelpers.CanvasRestAdapter;
 import com.instructure.template.loginTemplate.api.models.Course;
 import com.instructure.template.loginTemplate.login.LoginActivity;
 import com.instructure.template.projectCodeHere.GetCourses;
+import com.instructure.template.projectCodeHere.GetProfile;
+import com.instructure.template.projectCodeHere.ProfilePage;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
@@ -28,6 +31,8 @@ import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,18 +47,20 @@ public class ExampleActivityJavified extends AppCompatActivity {
     private List<GetCourses.CoursesResponse> courses;
     private final String TAG = "ExampleActivityJavified";
     private String selectedCourse; // TODO: Migrate this to use course IDs instead; I don't think course names are unique! -Hayden
+    private String name="",iconUrl="";
+    ProfileDrawerItem profile;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        getInfo();
+        Log.d("stuff",name+" "+iconUrl);
         //User test = UserManager.getSelf(Call<User>);
-        ProfileDrawerItem profile = new ProfileDrawerItem().withName("Profile not yet implemented.")
-                .withIcon(R.drawable.vd_canvas_logo);
 
 
         db = new DrawerBuilder()
             .addDrawerItems(profile)
             .addDrawerItems(new DividerDrawerItem());
-        
+
         getCoursesFromAPI();
         /* add drawer items from that course list into the DrawerBuilder */
         for (PrimaryDrawerItem pdi : coursesDrawerList) {
@@ -100,6 +107,33 @@ public class ExampleActivityJavified extends AppCompatActivity {
                      }
         );
         coursesDrawerList = courseItems;
+    }
+
+    private void getInfo() {
+        Retrofit client = (new Retrofit.Builder()).baseUrl(ApiPrefs.getFullDomain()).addConverterFactory(GsonConverterFactory.create()).build();
+        GetProfile getProfile = client.create(GetProfile.class);
+        Call<GetProfile.ProfileResponse> call = getProfile.profileCall(ApiPrefs.getUser().getId(),"Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
+        call.enqueue((new Callback<GetProfile.ProfileResponse>() {
+            public void onFailure(@NotNull Call call, @NotNull Throwable t) {
+                // This  is where you would put code for the error/failure case
+                Log.d("ERROR","call has failed");
+                Log.d("call",call.toString());
+                Log.d("throwable",t.toString());
+            }
+
+            public void onResponse(@NotNull Call call, @NotNull Response response) {
+                // This is where you would put code for the success case!
+                // The data is in the response body - response.body()
+                GetProfile.ProfileResponse g;
+                g = (GetProfile.ProfileResponse)response.body();
+                name=g.getName();
+                Log.d("stuff2",g.getName());
+                Log.d("stuff2",name);
+                iconUrl=g.getAvatar_url();
+                profile = new ProfileDrawerItem().withName(name)
+                        .withIcon(iconUrl);
+            }
+        }));
     }
 
     @Override
