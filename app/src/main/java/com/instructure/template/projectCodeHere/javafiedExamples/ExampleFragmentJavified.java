@@ -50,7 +50,7 @@ public class ExampleFragmentJavified extends Fragment {
             }
             ApiPrefs.clearAllData();
             // Take us back to login starting point
-            Intent intent = new Intent(requireContext(), LoginActivity.class);
+            Intent intent = new Intent(requireActivity(), LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);

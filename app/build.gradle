@@ -74,4 +74,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
 
+    /* Navigation Drawer (https://github.com/mikepenz/MaterialDrawer) */
+    implementation "com.mikepenz:materialdrawer:6.1.2"
+
+    implementation "androidx.appcompat:appcompat:${androidXVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${androidXVersion}"
+
 }

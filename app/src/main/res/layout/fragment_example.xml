@@ -29,6 +29,6 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button_rounded"
             android:textColor="@color/white"
-            android:text="@string/logoutStringExample"/>
+            android:text="@string/logout"/>
 
 </LinearLayout>

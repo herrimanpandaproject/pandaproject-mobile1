@@ -46,6 +46,16 @@ public interface GetCourses {
         private long id;
         @SerializedName("name")
         private String name;
+        @SerializedName("public_description")
+        private String public_description;
+
+        public String getPublic_description() {
+            return public_description;
+        }
+
+        public void setPublic_description(String public_description) {
+            this.public_description = public_description;
+        }
 
         public long getId() {
             return id;
@@ -66,12 +76,14 @@ public interface GetCourses {
         protected CoursesResponse(Parcel in) {
             id = in.readLong();
             name = in.readString();
+            public_description = in.readString();
         }
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
             dest.writeString(name);
+            dest.writeString(public_description);
         }
 
         @Override
