@@ -179,11 +179,13 @@ public class ExampleActivityJavified extends AppCompatActivity {
 
     private boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         if (drawerItem instanceof Nameable) {
+            Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.exampleFragmentJavified);
             selectedCourse = String.valueOf(((Nameable) drawerItem).getName());
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragmentJavified_to_fragmentCourse3);
             drawer.closeDrawer();
         }
         else if (drawerItem instanceof ProfileDrawerItem) {
+            Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.exampleFragmentJavified);
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragment_to_ProfilePage);
             drawer.closeDrawer();
         }
