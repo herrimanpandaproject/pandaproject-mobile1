@@ -11,6 +11,14 @@
         <action android:id="@+id/action_exampleFragment_to_exampleDestinationFragment"
                 app:destination="@id/ExampleDestinationFragmentJavified"/>
 
+        <action android:id="@+id/action_exampleFragment_to_ProfilePage"
+                app:destination="@id/ProfilePage"/>
+
+    </fragment>
+
+    <fragment android:id="@+id/ProfilePage"
+              android:name="com.instructure.template.projectCodeHere.ProfilePage"
+              android:label="ProfilePage">
     </fragment>
 
     <fragment android:id="@+id/ExampleDestinationFragmentJavified"
