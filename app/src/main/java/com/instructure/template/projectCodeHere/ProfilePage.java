@@ -105,15 +105,16 @@ public class ProfilePage extends Fragment {
             public void onResponse(@NotNull Call call, @NotNull Response response) {
                 // This is where you would put code for the success case!
                 // The data is in the response body - response.body()
-                // TODO: Get rid of my awful bandaid fix.
                 List<GetEnrollments.EnrollmentResponse> g;
                 g = (ArrayList<GetEnrollments.EnrollmentResponse>)response.body();
-                double total = 0;
+                int count=0;
+                double total=0;
                 for(GetEnrollments.EnrollmentResponse i : g) {
-                    total += i.getGrades().getCurrent_score();
+                    total+=i.getGrades().getCurrent_score();
+                    count++;
                 }
-                double GPA=(total/20.0)-1.0;
-                gpaPrint.setText("GPA: " + String.format("%1f", GPA));
+                double totalGPA=total/count,GPA=(totalGPA/20.0)-1.0;
+                gpaPrint.setText("GPA: " + String.format("%2f", GPA));
             }
         }));
     }
