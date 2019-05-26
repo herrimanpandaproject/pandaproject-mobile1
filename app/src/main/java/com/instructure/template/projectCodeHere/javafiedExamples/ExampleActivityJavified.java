@@ -49,24 +49,33 @@ public class ExampleActivityJavified extends AppCompatActivity {
     private String selectedCourse; // TODO: Migrate this to use course IDs instead; I don't think course names are unique! -Hayden
     private String name="",iconUrl="";
     ProfileDrawerItem profile;
+    private Bundle global;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         getInfo();
+        global=savedInstanceState;
+        super.onCreate(savedInstanceState);
+    }
+
+    protected void continueCreate(@Nullable Bundle savedInstanceState) {
         Log.d("stuff",name+" "+iconUrl);
         //User test = UserManager.getSelf(Call<User>);
 
 
+        profile = new ProfileDrawerItem().withName(name)
+                .withIcon(iconUrl);
+
         db = new DrawerBuilder()
-            .addDrawerItems(profile)
-            .addDrawerItems(new DividerDrawerItem());
+                .addDrawerItems(profile)
+                .addDrawerItems(new DividerDrawerItem());
 
         getCoursesFromAPI();
         /* add drawer items from that course list into the DrawerBuilder */
         for (PrimaryDrawerItem pdi : coursesDrawerList) {
             db.addDrawerItems(pdi);
         }
-        super.onCreate(savedInstanceState);
+
 
         /* Create the navigation drawer */
         setContentView(R.layout.activity_example);
@@ -78,8 +87,6 @@ public class ExampleActivityJavified extends AppCompatActivity {
         /* Create the menu containing the logout button (for now) */
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
 
     /**
@@ -130,8 +137,9 @@ public class ExampleActivityJavified extends AppCompatActivity {
                 Log.d("stuff2",g.getName());
                 Log.d("stuff2",name);
                 iconUrl=g.getAvatar_url();
-                profile = new ProfileDrawerItem().withName(name)
-                        .withIcon(iconUrl);
+
+                Log.d("stuff2",iconUrl);
+                continueCreate(global);
             }
         }));
     }
