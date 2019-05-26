@@ -38,11 +38,11 @@ import java.util.Objects;
 
 public class ProfilePage extends Fragment {
 
-    private TextView textView;
+    private TextView usernameprint;
     private Button logoutButton;
     private ImageView imageView;
-    private TextView textView2;
-    private TextView textView3;
+    private TextView gpaPrint;
+    private TextView emailPrint;
 
     @Nullable
     @Override
@@ -55,10 +55,10 @@ public class ProfilePage extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         logoutButton = view.findViewById(R.id.logoutButton);
-        textView = view.findViewById(R.id.textView);
+        usernameprint = view.findViewById(R.id.username);
         imageView = view.findViewById(R.id.profileIcon);
-        textView2 = view.findViewById(R.id.gpa);
-        textView3 = view.findViewById(R.id.userEmail);
+        gpaPrint = view.findViewById(R.id.gpa);
+        emailPrint = view.findViewById(R.id.userEmail);
 
         logoutButton.setOnClickListener(v -> {
             // Clear the local data (token, domain, etc)
@@ -90,9 +90,9 @@ public class ProfilePage extends Fragment {
                 // The data is in the response body - response.body()
                 GetProfile.ProfileResponse g;
                 g = (GetProfile.ProfileResponse)response.body();
-                textView.setText(g.getName());
+                usernameprint.setText(g.getName());
                 new DownLoadImageTask((ImageView) view.findViewById(R.id.profileIcon)).execute(g.getAvatar_url());
-                textView3.setText(g.getPrimary_email());
+                emailPrint.setText(g.getPrimary_email());
             }
         }));
         GetEnrollments getEnrollments = client.create(GetEnrollments.class);
@@ -113,35 +113,8 @@ public class ProfilePage extends Fragment {
                     total+=i.getGrades().getCurrent_score();
                     count++;
                 }
-                double totalGPA=total/count,GPA=0;
-                if(totalGPA>90) {
-                    GPA=4;
-                } else if(totalGPA>85) {
-                    GPA=3.9;
-                } else if(totalGPA>80) {
-                    GPA=3.7;
-                } else if(totalGPA>77) {
-                    GPA=3.3;
-                } else if(totalGPA>73) {
-                    GPA=3;
-                } else if(totalGPA>70) {
-                    GPA=2.7;
-                } else if(totalGPA>67) {
-                    GPA=2.3;
-                } else if(totalGPA>63) {
-                    GPA=2;
-                } else if(totalGPA>60) {
-                    GPA=1.7;
-                } else if(totalGPA>57) {
-                    GPA=1.3;
-                } else if(totalGPA>53) {
-                    GPA=1;
-                } else if(totalGPA>50) {
-                    GPA=.7;
-                } else {
-                    GPA=0;
-                }
-                textView2.setText(GPA+"");
+                double totalGPA=total/count,GPA=(totalGPA/20.0)-1;
+                gpaPrint.setText(GPA+"");
             }
         }));
     }
