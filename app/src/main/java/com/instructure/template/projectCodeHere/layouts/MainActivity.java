@@ -223,7 +223,11 @@ public class MainActivity extends AppCompatActivity {
         if (drawerItem instanceof Nameable) {
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.exampleFragmentJavified);
             String tmp = String.valueOf(((Nameable) drawerItem).getName());
-            if ((tmp.substring(tmp.indexOf("%")-2)).substring(0,1).equals(".")) {
+            if ((tmp.substring(tmp.indexOf("%")-2)).substring(0,1).equals(".")&&!tmp.substring(tmp.indexOf("%")-5).substring(0,1).equals("1")&&!tmp.substring(tmp.indexOf(".")-2).substring(0,1).equals("\t")) {
+                selectedCourse = hmap.get(tmp.substring(0,tmp.indexOf("%")-6));
+            } else if ((tmp.substring(tmp.indexOf("%")-2)).substring(0,1).equals(".")&&tmp.substring(tmp.indexOf(".")-2).substring(0,1).equals("\t")) {
+                selectedCourse = hmap.get(tmp.substring(0,tmp.indexOf("%")-5));
+            } else if (tmp.substring(tmp.indexOf(".")-2).substring(0,1).equals("\t")) {
                 selectedCourse = hmap.get(tmp.substring(0,tmp.indexOf("%")-6));
             } else {
                 selectedCourse = hmap.get(tmp.substring(0,tmp.indexOf("%")-7));
