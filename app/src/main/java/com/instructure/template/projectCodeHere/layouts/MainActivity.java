@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                                  tmp = i.getGrades().getCurrent_score();
                              }
                          }
-                         db.addDrawerItems(new PrimaryDrawerItem().withName(c.getName() + "\t\t%" + tmp));
+                         db.addDrawerItems(new PrimaryDrawerItem().withName(c.getName() + "\t\t" + tmp + "%"));
                          Log.i(TAG, "Drawer item: " + c.getName());
                          hmap.put(c.getName(),c.getId());
                      }
