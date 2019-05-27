@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
-import com.instructure.template.loginTemplate.api.models.Enrollment;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -112,6 +111,16 @@ public interface GetEnrollments {
     class Grade implements Parcelable {
         @SerializedName("current_score")
         private double current_score;
+        @SerializedName("html_url")
+        private String html_url;
+
+        public String getHtml_url() {
+            return html_url;
+        }
+
+        public void setHtml_url(String html_url) {
+            this.html_url = html_url;
+        }
 
         public double getCurrent_score() {
             return current_score;
@@ -122,6 +131,7 @@ public interface GetEnrollments {
         }
 
         protected Grade(Parcel in) {
+            html_url = in.readString();
             current_score = in.readDouble();
         }
 
@@ -132,6 +142,7 @@ public interface GetEnrollments {
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
+            dest.writeString(html_url);
             dest.writeDouble(current_score);
         }
 
