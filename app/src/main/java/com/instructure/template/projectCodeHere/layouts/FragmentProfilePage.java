@@ -37,7 +37,7 @@ import java.util.Objects;
 
 public class FragmentProfilePage extends Fragment {
 
-    private TextView usernameprint;
+    private TextView usernamePrint;
     private Button logoutButton;
     private ImageView userIcon;
     private TextView gpaPrint;
@@ -54,7 +54,7 @@ public class FragmentProfilePage extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         logoutButton = view.findViewById(R.id.logoutButton);
-        usernameprint = view.findViewById(R.id.username);
+        usernamePrint = view.findViewById(R.id.username);
         userIcon = view.findViewById(R.id.profileIcon);
         gpaPrint = view.findViewById(R.id.gpa);
         emailPrint = view.findViewById(R.id.userEmail);
@@ -89,7 +89,7 @@ public class FragmentProfilePage extends Fragment {
                 // The data is in the response body - response.body()
                 GetProfile.ProfileResponse g;
                 g = (GetProfile.ProfileResponse)response.body();
-                usernameprint.setText(g.getName());
+                usernamePrint.setText(g.getName());
                 new DownLoadImageTask((ImageView) view.findViewById(R.id.profileIcon)).execute(g.getAvatar_url());
                 emailPrint.setText(g.getPrimary_email());
             }

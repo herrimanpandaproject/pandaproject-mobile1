@@ -25,9 +25,10 @@
             android:gravity="top" android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:text="Course Description"/>
     <TextView
-            android:text=""
+            android:text="@string/temp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/courseDisplay"/>
+            android:layout_height="wrap_content" android:id="@+id/courseDisplay" android:textSize="18sp"
+            android:gravity="center"/>
 
 
 </LinearLayout>

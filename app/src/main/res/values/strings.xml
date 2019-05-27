@@ -19,15 +19,13 @@
     <string name="unknownDevice">UnknownDevice</string>
     <string name="errorOccurred">An unexpected error occurred.</string>
     <string name="invalidEmailPassword">Invalid email or password</string>
-    <string name="exampleDestination">You\'ve reached an example destination!</string>
-    <string name="helloWorld">Hello World, you\'ve logged in.</string>
-    <string name="exampleNavigation">Example Navigation</string>
-    <string name="logoutStringExample">Logout</string>
     <string name="logout">logout</string>
     <string name="username">Username</string>
     <string name="usernamePrint">(insert Username)</string>
     <string name="gpaWord">GPA: </string>
-    <string name="gpa">temp</string>
+    <string name="temp">temp</string>
     <string name="email">tempEmail</string>
     <string name="failToFindAssignments">You have no assignments for this course!</string>
+    <string name="logoutString">Logout</string>
+    <string name="welcome">Welcome to the Canvas Android App.</string>
 </resources>
