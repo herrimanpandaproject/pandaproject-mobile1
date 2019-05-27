@@ -29,4 +29,5 @@
     <string name="gpaWord">GPA: </string>
     <string name="gpa">temp</string>
     <string name="email">tempEmail</string>
+    <string name="failToFindAssignments">You have no assignments for this course!</string>
 </resources>
