@@ -109,11 +109,35 @@ public class FragmentProfilePage extends Fragment {
                 int count=0;
                 double total=0;
                 for(GetEnrollments.EnrollmentResponse i : g) {
-                    total+=i.getGrades().getCurrent_score();
+                    if(i.getGrades().getCurrent_score()>=93) {
+                        total+=4;
+                    } else if(i.getGrades().getCurrent_score()>=90) {
+                        total+=3.67;
+                    } else if(i.getGrades().getCurrent_score()>=87) {
+                        total+=3.33;
+                    } else if(i.getGrades().getCurrent_score()>=83) {
+                        total+=3;
+                    } else if(i.getGrades().getCurrent_score()>=80) {
+                        total+=2.67;
+                    } else if(i.getGrades().getCurrent_score()>=77) {
+                        total+=2.33;
+                    } else if(i.getGrades().getCurrent_score()>=73) {
+                        total+=2;
+                    } else if(i.getGrades().getCurrent_score()>=70) {
+                        total+=1.67;
+                    } else if(i.getGrades().getCurrent_score()>=67) {
+                        total+=1.33;
+                    } else if(i.getGrades().getCurrent_score()>=63) {
+                        total+=1;
+                    } else if(i.getGrades().getCurrent_score()>=60) {
+                        total+=.67;
+                    } else if(i.getGrades().getCurrent_score()>=0) {
+                        total+=0;
+                    }
                     count++;
                 }
-                double totalGPA=total/count,GPA=(totalGPA/20.0)-1.0;
-                gpaPrint.setText("GPA: " + String.format("%.3f", GPA));
+                double totalGPA=total/count;
+                gpaPrint.setText("GPA: " + String.format("%.3f", totalGPA));
             }
         }));
     }
