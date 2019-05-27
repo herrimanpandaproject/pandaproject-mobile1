@@ -114,7 +114,7 @@ public class ProfilePage extends Fragment {
                     count++;
                 }
                 double totalGPA=total/count,GPA=(totalGPA/20.0)-1.0;
-                gpaPrint.setText("GPA: " + String.format("%2f", GPA));
+                gpaPrint.setText("GPA: " + String.format("%.3f", GPA));
             }
         }));
     }
