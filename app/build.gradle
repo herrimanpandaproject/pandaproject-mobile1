@@ -79,5 +79,6 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:${androidXVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${androidXVersion}"
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }
