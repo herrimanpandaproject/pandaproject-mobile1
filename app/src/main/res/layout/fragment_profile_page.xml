@@ -17,7 +17,8 @@
         <ImageView
                 android:layout_width="46dp"
                 android:layout_height="match_parent"
-                android:contentDescription="@string/username" android:id="@+id/profileIcon"/>
+                android:contentDescription="@string/username" android:id="@+id/profileIcon"
+                app:srcCompat="@android:drawable/ic_search_category_default"/>
         <TextView
                 android:text="@string/usernamePrint"
                 android:layout_width="wrap_content"

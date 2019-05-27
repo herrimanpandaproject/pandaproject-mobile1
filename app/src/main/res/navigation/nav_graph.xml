@@ -5,7 +5,7 @@
             app:startDestination="@id/exampleFragmentJavified">
 
     <fragment android:id="@+id/exampleFragmentJavified"
-              android:name="com.instructure.template.projectCodeHere.javafiedExamples.ExampleFragmentJavified"
+              android:name="com.instructure.template.projectCodeHere.activities.ExampleFragmentJavified"
               android:label="ExampleFragmentJavified">
 
         <action android:id="@+id/action_exampleFragment_to_exampleDestinationFragment"
@@ -19,15 +19,15 @@
     </fragment>
 
     <fragment android:id="@+id/ProfilePage"
-              android:name="com.instructure.template.projectCodeHere.ProfilePage"
+              android:name="com.instructure.template.projectCodeHere.activities.FragmentProfilePage"
               android:label="ProfilePage">
     </fragment>
 
     <fragment android:id="@+id/ExampleDestinationFragmentJavified"
-              android:name="com.instructure.template.projectCodeHere.javafiedExamples.ExampleDestinationFragmentJavified"
+              android:name="com.instructure.template.projectCodeHere.activities.ExampleDestinationFragmentJavified"
               android:label="ExampleDestinationFragmentJavified"/>
     <fragment android:id="@+id/fragmentCourse3"
-              android:name="com.instructure.template.projectCodeHere.javafiedExamples.FragmentCourse"
+              android:name="com.instructure.template.projectCodeHere.activities.FragmentCourse"
               android:label="fragment_course" tools:layout="@layout/fragment_course">
         <action android:id="@+id/action_fragmentCourse3_self" app:destination="@id/fragmentCourse3"/>
     </fragment>

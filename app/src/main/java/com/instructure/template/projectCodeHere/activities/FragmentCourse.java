@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere.javafiedExamples;
+package com.instructure.template.projectCodeHere.activities;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.instructure.template.R;
-import com.instructure.template.projectCodeHere.GetCourses;
+import com.instructure.template.projectCodeHere.api.GetCourses;
 
 public class FragmentCourse extends Fragment {
     public static FragmentCourse newInstance() {

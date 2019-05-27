@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere;
+package com.instructure.template.projectCodeHere.activities;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -19,6 +19,8 @@ import com.instructure.template.R;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
 import com.instructure.template.loginTemplate.api.apiHelpers.CanvasRestAdapter;
 import com.instructure.template.loginTemplate.login.LoginActivity;
+import com.instructure.template.projectCodeHere.api.GetEnrollments;
+import com.instructure.template.projectCodeHere.api.GetProfile;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ProfilePage extends Fragment {
+public class FragmentProfilePage extends Fragment {
 
     private TextView usernameprint;
     private Button logoutButton;
@@ -44,7 +46,7 @@ public class ProfilePage extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.profile_page, container, false);
+        return inflater.inflate(R.layout.fragment_profile_page, container, false);
     }
 
     @Override
