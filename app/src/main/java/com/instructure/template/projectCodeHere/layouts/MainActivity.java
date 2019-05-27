@@ -222,7 +222,13 @@ public class MainActivity extends AppCompatActivity {
     private boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         if (drawerItem instanceof Nameable) {
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.exampleFragmentJavified);
-            selectedCourse = hmap.get(String.valueOf(((Nameable) drawerItem).getName()).substring(0,String.valueOf(((Nameable) drawerItem).getName()).indexOf("%")-7));
+            String tmp = String.valueOf(((Nameable) drawerItem).getName());
+            if ((tmp.substring(tmp.indexOf("%")-2)).substring(0,1).equals(".")) {
+                selectedCourse = hmap.get(tmp.substring(0,tmp.indexOf("%")-6));
+            } else {
+                selectedCourse = hmap.get(tmp.substring(0,tmp.indexOf("%")-7));
+            }
+
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragmentJavified_to_fragmentCourse3);
             drawer.closeDrawer();
         }
