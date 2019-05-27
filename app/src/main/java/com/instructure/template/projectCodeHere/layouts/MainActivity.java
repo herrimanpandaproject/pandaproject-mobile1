@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere.javafiedExamples;
+package com.instructure.template.projectCodeHere.layouts;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -18,17 +18,14 @@ import com.instructure.template.R;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
 import com.instructure.template.loginTemplate.api.apiHelpers.CanvasRestAdapter;
 import com.instructure.template.loginTemplate.login.LoginActivity;
-import com.instructure.template.projectCodeHere.GetCourses;
-import com.instructure.template.projectCodeHere.GetProfile;
-import com.mikepenz.materialdrawer.AccountHeader;
-import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.instructure.template.projectCodeHere.api.GetCourses;
+import com.instructure.template.projectCodeHere.api.GetProfile;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
@@ -45,13 +42,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class ExampleActivityJavified extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Drawer drawer;
     private DrawerBuilder db;
     private List<PrimaryDrawerItem> coursesDrawerList;
     private List<GetCourses.CoursesResponse> courses;
-    private final String TAG = "ExampleActivityJavified";
+    private final String TAG = "MainActivity";
     private String selectedCourse; // TODO: Migrate this to use course IDs instead; I don't think course names are unique! -Hayden
     private String name="",iconUrl="";
     ProfileDrawerItem profile;

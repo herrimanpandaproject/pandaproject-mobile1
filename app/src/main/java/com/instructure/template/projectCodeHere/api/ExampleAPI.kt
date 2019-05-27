@@ -13,7 +13,7 @@
  *     See the License for the specific language governing permissions and
  *     limitations under the License.
  */
-package com.instructure.template.projectCodeHere
+package com.instructure.template.projectCodeHere.api
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -49,7 +49,7 @@ object ExampleAPI {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val exampleAPI = client.create(ExampleInterface::class.java)
+        val exampleAPI = client.create(ExampleAPI.ExampleInterface::class.java)
 
         // With the set up done, we can now make our api call!
         // Parameter 3 and 4 are very important! Those map to the two @Header parameters seen in the interface above.
@@ -77,7 +77,7 @@ object ExampleAPI {
             .baseUrl(ApiPrefs.fullDomain)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-        val exampleAPI = client.create(ExampleInterface::class.java)
+        val exampleAPI = client.create(ExampleAPI.ExampleInterface::class.java)
         val call: Call<ExampleResponse> =
             exampleAPI.getMyLearnables("userid", "example query", ApiPrefs.token, ApiPrefs.userAgent)
 

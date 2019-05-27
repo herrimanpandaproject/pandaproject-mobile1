@@ -24,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.instructure.template.R
 import com.instructure.template.loginTemplate.api.ApiPrefs
-import com.instructure.template.projectCodeHere.javafiedExamples.ExampleActivityJavified
+import com.instructure.template.projectCodeHere.layouts.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
             CookieManager.getInstance().flush()
         }
 
-        val intent = Intent(this, ExampleActivityJavified::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         if (getIntent() != null && getIntent().extras != null) {
             intent.putExtras(getIntent().extras)
         }
