@@ -1,34 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:gravity="center"
+              android:gravity="center_horizontal|top"
               android:background="@color/white">
 
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="66dp"/>
     <TextView
-            android:id="@+id/textView"
+            android:text="@string/welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView" android:textSize="24sp"
+            android:gravity="center"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="33dp"/>
+    <TextView
+            android:text="@string/username"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="@string/helloWorld"/>
-
-    <Button
-            android:id="@+id/navigationButton"
-            android:layout_margin="16dp"
+            android:layout_height="wrap_content" android:id="@+id/loggedIn"
+            android:textSize="24sp" android:gravity="center_horizontal|top"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="165dp"/>
+    <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_button_rounded"
-            android:textColor="@color/white"
-            android:text="@string/exampleNavigation"/>
-
-    <Button
-            android:id="@+id/logoutButton"
-            android:layout_margin="16dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_button_rounded"
-            android:textColor="@color/white"
-            android:text="@string/logout"/>
-
+            android:id="@+id/canvasIcon"/>
 </LinearLayout>
