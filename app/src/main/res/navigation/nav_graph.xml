@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/nav_graph"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
             app:startDestination="@id/exampleFragmentJavified">
 
     <fragment android:id="@+id/exampleFragmentJavified"
@@ -10,6 +10,8 @@
 
         <action android:id="@+id/action_exampleFragment_to_exampleDestinationFragment"
                 app:destination="@id/ExampleDestinationFragmentJavified"/>
+        <action android:id="@+id/action_exampleFragmentJavified_to_fragmentCourse3"
+                app:destination="@id/fragmentCourse3"/>
 
         <action android:id="@+id/action_exampleFragment_to_ProfilePage"
                 app:destination="@id/ProfilePage"/>
@@ -24,5 +26,10 @@
     <fragment android:id="@+id/ExampleDestinationFragmentJavified"
               android:name="com.instructure.template.projectCodeHere.javafiedExamples.ExampleDestinationFragmentJavified"
               android:label="ExampleDestinationFragmentJavified"/>
+    <fragment android:id="@+id/fragmentCourse3"
+              android:name="com.instructure.template.projectCodeHere.javafiedExamples.FragmentCourse"
+              android:label="fragment_course" tools:layout="@layout/fragment_course">
+        <action android:id="@+id/action_fragmentCourse3_self" app:destination="@id/fragmentCourse3"/>
+    </fragment>
 
 </navigation>

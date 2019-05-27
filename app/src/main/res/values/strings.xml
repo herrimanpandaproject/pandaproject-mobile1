@@ -23,6 +23,7 @@
     <string name="helloWorld">Hello World, you\'ve logged in.</string>
     <string name="exampleNavigation">Example Navigation</string>
     <string name="logoutStringExample">Logout</string>
+    <string name="logout">logout</string>
     <string name="username">Username</string>
     <string name="usernamePrint">(insert Username)</string>
     <string name="gpaWord">GPA: </string>

@@ -3,8 +3,6 @@ package com.instructure.template.projectCodeHere;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Icon;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,7 +15,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 import com.instructure.template.R;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
 import com.instructure.template.loginTemplate.api.apiHelpers.CanvasRestAdapter;
@@ -40,7 +37,7 @@ public class ProfilePage extends Fragment {
 
     private TextView usernameprint;
     private Button logoutButton;
-    private ImageView imageView;
+    private ImageView userIcon;
     private TextView gpaPrint;
     private TextView emailPrint;
 
@@ -56,7 +53,7 @@ public class ProfilePage extends Fragment {
 
         logoutButton = view.findViewById(R.id.logoutButton);
         usernameprint = view.findViewById(R.id.username);
-        imageView = view.findViewById(R.id.profileIcon);
+        userIcon = view.findViewById(R.id.profileIcon);
         gpaPrint = view.findViewById(R.id.gpa);
         emailPrint = view.findViewById(R.id.userEmail);
 
@@ -113,8 +110,8 @@ public class ProfilePage extends Fragment {
                     total+=i.getGrades().getCurrent_score();
                     count++;
                 }
-                double totalGPA=total/count,GPA=(totalGPA/20.0)-1;
-                gpaPrint.setText(GPA+"");
+                double totalGPA=total/count,GPA=(totalGPA/20.0)-1.0;
+                gpaPrint.setText("GPA: " + String.format("%.3f", GPA));
             }
         }));
     }
