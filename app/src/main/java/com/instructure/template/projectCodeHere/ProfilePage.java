@@ -37,7 +37,7 @@ public class ProfilePage extends Fragment {
 
     private TextView usernameprint;
     private Button logoutButton;
-    private ImageView imageView;
+    private ImageView userIcon;
     private TextView gpaPrint;
     private TextView emailPrint;
 
@@ -53,7 +53,7 @@ public class ProfilePage extends Fragment {
 
         logoutButton = view.findViewById(R.id.logoutButton);
         usernameprint = view.findViewById(R.id.username);
-        imageView = view.findViewById(R.id.profileIcon);
+        userIcon = view.findViewById(R.id.profileIcon);
         gpaPrint = view.findViewById(R.id.gpa);
         emailPrint = view.findViewById(R.id.userEmail);
 
