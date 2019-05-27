@@ -19,6 +19,7 @@ import com.instructure.template.loginTemplate.api.ApiPrefs;
 import com.instructure.template.loginTemplate.api.apiHelpers.CanvasRestAdapter;
 import com.instructure.template.loginTemplate.login.LoginActivity;
 import com.instructure.template.projectCodeHere.api.GetCourses;
+import com.instructure.template.projectCodeHere.api.GetEnrollments;
 import com.instructure.template.projectCodeHere.api.GetProfile;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -38,7 +39,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
     ProfileDrawerItem profile;
     private Bundle global;
     private HashMap<String, Long> hmap = new HashMap<String, Long>();
+    private List<GetEnrollments.EnrollmentResponse> enrollments;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        getInfo();
+        getEnrollemntsFromApi();
         global=savedInstanceState;
         super.onCreate(savedInstanceState);
     }
@@ -123,7 +124,13 @@ public class MainActivity extends AppCompatActivity {
                      Log.i(TAG, "Response body: " + response.body().toString());
                      Log.i(TAG, courses.toString());
                      for (GetCourses.CoursesResponse c : courses) {
-                         db.addDrawerItems(new PrimaryDrawerItem().withName(c.getName()));
+                         double tmp = 0;
+                         for (GetEnrollments.EnrollmentResponse i : enrollments) {
+                             if (i.getCourse_id()==c.getId()) {
+                                 tmp = i.getGrades().getCurrent_score();
+                             }
+                         }
+                         db.addDrawerItems(new PrimaryDrawerItem().withName(c.getName() + "\t\t%" + tmp));
                          Log.i(TAG, "Drawer item: " + c.getName());
                          hmap.put(c.getName(),c.getId());
                      }
@@ -157,6 +164,24 @@ public class MainActivity extends AppCompatActivity {
 
                 Log.d("stuff2",iconUrl);
                 continueCreate(global);
+            }
+        }));
+    }
+
+    private void getEnrollemntsFromApi() {
+        Retrofit client = (new Retrofit.Builder()).baseUrl(ApiPrefs.getFullDomain()).addConverterFactory(GsonConverterFactory.create()).build();
+        GetEnrollments getEnrollments = client.create(GetEnrollments.class);
+        Call<List<GetEnrollments.EnrollmentResponse>> call = getEnrollments.enrollmentsCall(ApiPrefs.getUser().getId(), "Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
+        call.enqueue((new Callback<List<GetEnrollments.EnrollmentResponse>>() {
+            public void onFailure(@NotNull Call call2, @NotNull Throwable t) {
+                // This  is where you would put code for the error/failure case
+            }
+
+            public void onResponse(@NotNull Call call, @NotNull Response response) {
+                // This is where you would put code for the success case!
+                // The data is in the response body - response.body()
+                enrollments = (ArrayList<GetEnrollments.EnrollmentResponse>)response.body();
+                getInfo();
             }
         }));
     }
@@ -197,7 +222,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         if (drawerItem instanceof Nameable) {
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.exampleFragmentJavified);
-            selectedCourse = hmap.get(String.valueOf(((Nameable) drawerItem).getName()));
+            Log.d("tmep", String.valueOf(((Nameable) drawerItem).getName()).substring(0,String.valueOf(((Nameable) drawerItem).getName()).indexOf("%")-2));
+            selectedCourse = hmap.get(String.valueOf(((Nameable) drawerItem).getName()).substring(0,String.valueOf(((Nameable) drawerItem).getName()).indexOf("%")-2));
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragmentJavified_to_fragmentCourse3);
             drawer.closeDrawer();
         }
