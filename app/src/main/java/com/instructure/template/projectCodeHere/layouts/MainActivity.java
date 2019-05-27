@@ -38,7 +38,9 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -49,10 +51,11 @@ public class MainActivity extends AppCompatActivity {
     private List<PrimaryDrawerItem> coursesDrawerList;
     private List<GetCourses.CoursesResponse> courses;
     private final String TAG = "MainActivity";
-    private String selectedCourse; // TODO: Migrate this to use course IDs instead; I don't think course names are unique! -Hayden
+    private long selectedCourse;
     private String name="",iconUrl="";
     ProfileDrawerItem profile;
     private Bundle global;
+    private HashMap<String, Long> hmap = new HashMap<String, Long>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,20 +114,21 @@ public class MainActivity extends AppCompatActivity {
         GetCourses getCourses = GetCourses.retrofit.create(GetCourses.class);
         Call<List<GetCourses.CoursesResponse>> call = getCourses.coursesCall(ApiPrefs.getUser().getId(), "Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
         call.enqueue(new Callback<List<GetCourses.CoursesResponse>>() {
-                         public void onFailure(@NotNull Call call, @NotNull Throwable t) {
-                             Log.e(TAG, "Failed to get coursesDrawerList! " + t.getMessage());
-                         }
+                 public void onFailure(@NotNull Call call, @NotNull Throwable t) {
+                     Log.e(TAG, "Failed to get coursesDrawerList! " + t.getMessage());
+                 }
 
-                         public void onResponse(@NotNull Call call, @NotNull Response response) {
-                             courses = (List<GetCourses.CoursesResponse>) response.body();
-                             Log.i(TAG, "Response body: " + response.body().toString());
-                             Log.i(TAG, courses.toString());
-                             for (GetCourses.CoursesResponse c : courses) {
-                                 db.addDrawerItems(new PrimaryDrawerItem().withName(c.getName()));
-                                 Log.i(TAG, "Drawer item: " + c.getName());
-                             }
-                         }
+                 public void onResponse(@NotNull Call call, @NotNull Response response) {
+                     courses = (List<GetCourses.CoursesResponse>) response.body();
+                     Log.i(TAG, "Response body: " + response.body().toString());
+                     Log.i(TAG, courses.toString());
+                     for (GetCourses.CoursesResponse c : courses) {
+                         db.addDrawerItems(new PrimaryDrawerItem().withName(c.getName()));
+                         Log.i(TAG, "Drawer item: " + c.getName());
+                         hmap.put(c.getName(),c.getId());
                      }
+                 }
+             }
         );
         coursesDrawerList = courseItems;
     }
@@ -193,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
         if (drawerItem instanceof Nameable) {
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.exampleFragmentJavified);
-            selectedCourse = String.valueOf(((Nameable) drawerItem).getName());
+            selectedCourse = hmap.get(String.valueOf(((Nameable) drawerItem).getName()));
             Navigation.findNavController(findViewById(R.id.navHostFragment)).navigate(R.id.action_exampleFragmentJavified_to_fragmentCourse3);
             drawer.closeDrawer();
         }
@@ -207,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
     public GetCourses.CoursesResponse getSelectedCourse() {
         for (GetCourses.CoursesResponse c : courses) {
-            if (c.getName().compareToIgnoreCase(selectedCourse) == 0) {
+            if (c.getId() == selectedCourse) {
                 return c;
             }
         }
