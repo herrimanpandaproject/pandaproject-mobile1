@@ -109,11 +109,13 @@ public class FragmentProfilePage extends Fragment {
                 int count=0;
                 double total=0;
                 for(GetEnrollments.EnrollmentResponse i : g) {
-                    total+=i.getGrades().getCurrent_score();
+                    for(double a = i.getGrades().getCurrent_score();a>=60;a-=3) {
+                        total+=.33;
+                    }
                     count++;
                 }
-                double totalGPA=total/count,GPA=(totalGPA/20.0)-1.0;
-                gpaPrint.setText("GPA: " + String.format("%.3f", GPA));
+                double totalGPA=total/count;
+                gpaPrint.setText("GPA: " + String.format("%.3f", totalGPA));
             }
         }));
     }
