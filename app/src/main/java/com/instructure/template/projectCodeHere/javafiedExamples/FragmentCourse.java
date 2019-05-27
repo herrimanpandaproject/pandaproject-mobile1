@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.instructure.template.R;
 import com.instructure.template.projectCodeHere.GetCourses;
-import com.instructure.template.projectCodeHere.GetEnrollments;
-import java.util.List;
 
 public class FragmentCourse extends Fragment {
     public static FragmentCourse newInstance() {
