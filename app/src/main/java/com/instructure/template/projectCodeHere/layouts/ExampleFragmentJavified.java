@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere.javafiedExamples;
+package com.instructure.template.projectCodeHere.layouts;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere;
+package com.instructure.template.projectCodeHere.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,12 +9,14 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.*;
 
+
 import java.util.List;
-//Create a list containing profile objects
+
+//Create a list containing enrollment objects
 //Retrofit client = (new Retrofit.Builder()).baseUrl(ApiPrefs.getFullDomain()).addConverterFactory(GsonConverterFactory.create()).build();
-//GetProfile getProfile = client.create(GetProfile.class);
-//Call<List<GetProfile.ProfileResponse>> call = getProfile.profileCall(ApiPrefs.getUser().getId(),"Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
-//call.enqueue((new Callback<List<GetProfile.ProfileResponse>>() {
+//GetCourses getCourses = client.create(GetCourses.class);
+//Call<List<GetCourses.CoursesResponse>> call = getCourses.coursesCall(ApiPrefs.getUser().getId(),"Bearer " + ApiPrefs.getToken(), ApiPrefs.getUserAgent());
+//call.enqueue((new Callback<List<GetCourses.CoursesResponse>>() {
 //    public void onFailure(@NotNull Call call, @NotNull Throwable t) {
 //        // This  is where you would put code for the error/failure case
 //    }
@@ -22,13 +24,13 @@ import java.util.List;
 //    public void onResponse(@NotNull Call call, @NotNull Response response) {
 //        // This is where you would put code for the success case!
 //        // The data is in the response body - response.body()
-//          List<GetProfile.ProfileResponse> g;
-//          g = (ArrayList<GetProfile.ProfileResponse>)response.body();
+//          List<GetCourses.CoursesResponse> g;
+//          g = (ArrayList<GetCourses.CoursesResponse>)response.body();
 //    }
 //}));
-public interface GetProfile {
-    @GET("/api/v1/users/{user_id}/profile")
-    Call<ProfileResponse> profileCall(
+public interface GetCourses {
+    @GET("/api/v1/users/{user_id}/courses")
+    Call<List<CoursesResponse>> coursesCall(
             @Path("user_id") Long user_id,
             @Header("Authorization") String authorization,
             @Header("User-Agent") String userAgent
@@ -39,34 +41,24 @@ public interface GetProfile {
             .addConverterFactory(GsonConverterFactory.create())
             .build();
 
-    class ProfileResponse implements Parcelable {
+    class CoursesResponse implements Parcelable {
         @SerializedName("id")
         private long id;
         @SerializedName("name")
         private String name;
-        @SerializedName("avatar_url")
-        private String avatar_url;
-        @SerializedName("primary_email")
-        private String primary_email;
+        @SerializedName("public_description")
+        private String public_description;
 
-        public String getAvatar_url() {
-            return avatar_url;
+        public String getPublic_description() {
+            return public_description;
         }
 
-        public void setAvatar_url(String avatar_url) {
-            this.avatar_url = avatar_url;
+        public void setPublic_description(String public_description) {
+            this.public_description = public_description;
         }
 
         public long getId() {
             return id;
-        }
-
-        public String getPrimary_email() {
-            return primary_email;
-        }
-
-        public void setPrimary_email(String primary_email) {
-            this.primary_email = primary_email;
         }
 
         public void setId(long id) {
@@ -81,17 +73,17 @@ public interface GetProfile {
             this.name = name;
         }
 
-        protected ProfileResponse(Parcel in) {
+        protected CoursesResponse(Parcel in) {
             id = in.readLong();
             name = in.readString();
-            avatar_url=in.readString();
+            public_description = in.readString();
         }
 
         @Override
         public void writeToParcel(Parcel dest, int flags) {
             dest.writeLong(id);
             dest.writeString(name);
-            dest.writeString(avatar_url);
+            dest.writeString(public_description);
         }
 
         @Override
@@ -99,15 +91,15 @@ public interface GetProfile {
             return 0;
         }
 
-        public final Creator<ProfileResponse> CREATOR = new Creator<ProfileResponse>() {
+        public final Creator<CoursesResponse> CREATOR = new Creator<CoursesResponse>() {
             @Override
-            public ProfileResponse createFromParcel(Parcel in) {
-                return new ProfileResponse(in);
+            public CoursesResponse createFromParcel(Parcel in) {
+                return new CoursesResponse(in);
             }
 
             @Override
-            public ProfileResponse[] newArray(int size) {
-                return new ProfileResponse[size];
+            public CoursesResponse[] newArray(int size) {
+                return new CoursesResponse[size];
             }
         };
 

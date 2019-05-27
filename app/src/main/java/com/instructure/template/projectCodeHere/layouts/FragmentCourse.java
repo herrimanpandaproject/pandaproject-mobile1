@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere.javafiedExamples;
+package com.instructure.template.projectCodeHere.layouts;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.instructure.template.R;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
-import com.instructure.template.projectCodeHere.GetAssignments;
-import com.instructure.template.projectCodeHere.GetCourses;
+import com.instructure.template.projectCodeHere.api.GetAssignments;
+import com.instructure.template.projectCodeHere.api.GetCourses;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -40,7 +40,7 @@ public class FragmentCourse extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ExampleActivityJavified parentActivity = (ExampleActivityJavified) this.getActivity();
+        MainActivity parentActivity = (MainActivity) this.getActivity();
         GetCourses.CoursesResponse selectedCourse = parentActivity.getSelectedCourse();
         Log.i(TAG, "We got course: " + parentActivity.getSelectedCourse());
 

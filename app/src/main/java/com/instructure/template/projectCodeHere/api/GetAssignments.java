@@ -1,4 +1,4 @@
-package com.instructure.template.projectCodeHere;
+package com.instructure.template.projectCodeHere.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;

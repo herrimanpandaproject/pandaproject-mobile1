@@ -16,8 +16,9 @@
             android:layout_height="wrap_content" android:gravity="center">
         <ImageView
                 android:layout_width="46dp"
-                android:layout_height="match_parent"
-                android:contentDescription="@string/username" android:id="@+id/profileIcon"/>
+                android:layout_height="49dp"
+                android:contentDescription="@string/username" android:id="@+id/profileIcon"
+                app:srcCompat="@mipmap/ic_launcher_foreground"/>
         <TextView
                 android:text="@string/usernamePrint"
                 android:layout_width="wrap_content"

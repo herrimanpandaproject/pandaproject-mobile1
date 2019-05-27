@@ -1,10 +1,9 @@
-package com.instructure.template.projectCodeHere.javafiedExamples;
+package com.instructure.template.projectCodeHere.api;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
-import com.instructure.template.projectCodeHere.ExampleAPI;
 import org.jetbrains.annotations.NotNull;
 import retrofit2.*;
 import retrofit2.converter.gson.GsonConverterFactory;
