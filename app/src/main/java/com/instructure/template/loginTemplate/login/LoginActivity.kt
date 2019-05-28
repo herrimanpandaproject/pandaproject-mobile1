@@ -24,6 +24,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.instructure.template.R
 import com.instructure.template.loginTemplate.api.ApiPrefs
+import com.instructure.template.projectCodeHere.api.UpdateGrades
 import com.instructure.template.projectCodeHere.layouts.MainActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -68,6 +69,7 @@ class LoginActivity : AppCompatActivity() {
                     //Start App
                     val intent = launchApplicationMainActivityIntent()
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    UpdateGrades.updateGrades()
                     startActivity(intent)
                 }
 

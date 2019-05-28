@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UpdateGrades {
-    private ArrayList<Double> grades = new ArrayList<>();
-    public void updateGrades()
+    private static ArrayList<Double> grades = new ArrayList<>();
+    public static void updateGrades()
     {
         Retrofit client = (new Retrofit.Builder()).baseUrl(ApiPrefs.getFullDomain()).addConverterFactory(GsonConverterFactory.create()).build();
         GetEnrollments getEnrollments = client.create(GetEnrollments.class);
@@ -31,6 +31,7 @@ public class UpdateGrades {
                 g = (ArrayList<GetEnrollments.EnrollmentResponse>)response.body();
                 for (GetEnrollments.EnrollmentResponse i : g)
                 grades.add(i.getGrades().getCurrent_score());
+
             }
         }));
     }
