@@ -33,6 +33,7 @@ import com.instructure.template.loginTemplate.api.models.OAuthToken
 import com.instructure.template.loginTemplate.api.models.SignedInUser
 import com.instructure.template.loginTemplate.api.models.User
 import com.instructure.template.loginTemplate.utils.Const
+import com.instructure.template.projectCodeHere.api.UpdateGrades
 import com.instructure.template.projectCodeHere.layouts.MainActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import retrofit2.Call
@@ -175,6 +176,7 @@ class SignInActivity : AppCompatActivity() {
 
         buildAuthenticationUrl("https", getAccountUrl(), mClientId!!)
         loadAuthenticationUrl("https", getAccountUrl())
+        UpdateGrades()
     }
 
     protected fun loadAuthenticationUrl(apiProtocol: String, domain: String) {

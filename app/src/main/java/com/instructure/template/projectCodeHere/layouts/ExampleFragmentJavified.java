@@ -15,6 +15,7 @@ import com.instructure.template.R;
 import com.instructure.template.loginTemplate.api.ApiPrefs;
 import com.instructure.template.loginTemplate.api.apiHelpers.CanvasRestAdapter;
 import com.instructure.template.loginTemplate.login.LoginActivity;
+import com.instructure.template.projectCodeHere.api.UpdateGrades;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -34,6 +35,8 @@ public class ExampleFragmentJavified extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        UpdateGrades;
 
         logoutButton = view.findViewById(R.id.logoutButton);
         navigationButton = view.findViewById(R.id.navigationButton);
